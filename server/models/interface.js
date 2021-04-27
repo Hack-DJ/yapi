@@ -185,7 +185,7 @@ class interfaceModel extends baseModel {
         project_id: project_id
       })
       .select(select)
-      .sort({ title: 1 })
+      .sort({ up_time: -1 })
       .exec();
   }
 
@@ -197,7 +197,7 @@ class interfaceModel extends baseModel {
         project_id: project_id,
         status:{ $in: status }
       })
-      .sort({ title: 1 })
+      .sort({ up_time: -1 })
       .skip((page - 1) * limit)
       .limit(limit)
       .select(
