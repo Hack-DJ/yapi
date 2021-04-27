@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom';
 import variable from '../../../../constants/variable';
 import './Edit.scss';
 import Label from '../../../../components/Label/Label.js';
-import {findMeInTree} from '../../../../common.js';
+import {findMeInTree,formatTime} from '../../../../common.js';
 
 const Option = Select.Option;
 const limit = 20;
@@ -386,6 +386,15 @@ class InterfaceList extends Component {
         filters: filter,
         onFilter: (value, record) => {
           return record.tag.indexOf(value) >= 0;
+        }
+      },
+      {
+        title: '更新日期',
+        dataIndex: 'up_time',
+        key: 'up_time',
+        width: 18,
+        render: text => {
+          return <div className="table-desc">{formatTime(text)}</div>;
         }
       }
     ];
